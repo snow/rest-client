@@ -795,8 +795,6 @@ module RestClient
           process_result res, & block
         end
       end
-    rescue EOFError
-      raise RestClient::ServerBrokeConnection
     rescue Net::OpenTimeout => err
       raise RestClient::Exceptions::OpenTimeout.new(nil, err)
     rescue Net::ReadTimeout => err
