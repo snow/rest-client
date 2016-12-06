@@ -795,6 +795,9 @@ module RestClient
           process_result res, & block
         end
       end
+    rescue EOFError => err
+      puts err.backtrace
+      raise
     rescue Net::OpenTimeout => err
       raise RestClient::Exceptions::OpenTimeout.new(nil, err)
     rescue Net::ReadTimeout => err
